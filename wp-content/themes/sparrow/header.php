@@ -7,7 +7,6 @@
    <!--- Basic Page Needs
    ================================================== -->
    <meta charset="utf-8">
-	<title>Sparrow - Free Responsive HTML5/CSS3 Template</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 
@@ -23,13 +22,18 @@
 
    <!-- Script
    ================================================== -->
-	<script src="js/modernizr.js"></script>
+	<!-- <script src="js/modernizr.js"></script> -->
 
    <!-- Favicons
 	================================================== -->
 	<link rel="shortcut icon" href="favicon.ico" > 
 
-  <?php wp_head() ?>
+   <?php
+   /**
+   *
+   *@hooked style_theme() from "./functions.php" 
+   */ 
+   wp_head() ?>
 
 </head>
 
@@ -44,15 +48,27 @@
          <div class="twelve columns">
 
             <div class="logo">
-               <a href="index.html"><img alt="" src="images/logo.png"></a>
+               <a href="<?php echo home_url(); ?>">
+                  <div><?php bloginfo('name'); ?></div>
+                  <img alt="" src="images/logo.png">
+               </a>
             </div>
-
+            
             <nav id="nav-wrap">
 
                <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-	            <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+               <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+               
+               <?php 
+                  wp_nav_menu( [
+                     'theme_location'  => 'top',
+                     'container'       => null, 
+                     'menu_class'      => 'nav', 
+                     'menu_id'         => 'nav'
+                  ] );
+               ?>
 
-               <ul id="nav" class="nav">
+               <!-- <ul id="nav" class="nav">
 
 	               <li class="current"><a href="index.htm">Home</a></li>
 	               <li><span><a href="blog.html">Blog</a></span>
@@ -71,7 +87,8 @@
                   <li><a href="contact.html">Contact</a></li>
                   <li><a href="styles.html">Features</a></li>
 
-               </ul> <!-- end #nav -->
+               </ul>  -->
+               <!-- end #nav -->
 
             </nav> <!-- end #nav-wrap -->
 

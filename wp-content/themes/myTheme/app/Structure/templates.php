@@ -23,6 +23,8 @@ use function Tonik\Theme\App\template;
 function render_post_thumbnail()
 {
     template(['partials/post/thumbnail', get_post_format()]);
+    echo '<br>';
+    echo get_post_format();
 }
 add_action('theme/index/post/thumbnail', 'Tonik\Theme\App\Structure\render_post_thumbnail');
 
