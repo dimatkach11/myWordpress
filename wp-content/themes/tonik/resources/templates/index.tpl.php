@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
-
-<section class="section">
+<!-- <section class="section">
     <div class="wrapper">
         <div class="content">
             <?php if (have_posts()) : ?>
@@ -42,6 +41,6 @@
             ?>
         <?php endif; ?>
     </div>
-</section>
+</section> -->
 
 <?php get_footer(); ?>
